@@ -1,0 +1,16 @@
+<employees>
+  <employee>
+    <id>101</id>
+    <name>Ashu</name>
+    <department>IT</department>
+    <designation>Software Engineer</designation>
+    <salary>80000</salary>
+  </employee>
+  <employee>
+    <id>102</id>
+    <name>Neha</name>
+    <department>Finance</department>
+    <designation>Analyst</designation>
+    <salary>65000</salary>
+  </employee>
+</employees>
