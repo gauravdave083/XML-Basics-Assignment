@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <xsl:output method="xml" indent="yes"/>
+
+  <xsl:template match="/">
+    <students>
+      <student id="1" name="John Doe">
+        <subject name="Mathematics" grade="A"/>
+        <subject name="Science" grade="B+"/>
+        <subject name="English" grade="A-"/>
+      </student>
+      <student id="2" name="Jane Smith">
+        <subject name="Mathematics" grade="B"/>
+        <subject name="Science" grade="A"/>
+        <subject name="English" grade="B+"/>
+      </student>
+    </students>
+  </xsl:template>
+
+</xsl:stylesheet>

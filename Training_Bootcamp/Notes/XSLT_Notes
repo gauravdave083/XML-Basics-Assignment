@@ -1,0 +1,138 @@
+📚 XLTS - Quick Notes
+
+
+📘 XSLT — eXtensible Stylesheet Language Transformations
+
+✅ What is XSLT?
+|
+|---> XSLT is a declarative language for transforming XML documents.
+|
+|---> Goal: Convert XML → XML, XML → HTML, XML → Text, XML → something else.
+|
+|---> Powered by: Templates + XPath.
+
+✅ Why use XSLT?
+|
+|---> Render XML as web pages (HTML).
+|---> Transform XML formats (e.g., legacy → new schema).
+|---> Extract parts of XML (report generation).
+|---> Automate data pipelines.
+
+
+
+✅ XSLT Workflow
+|
+|---> Input:
+|     📂 source.xml + stylesheet.xsl
+|
+|---> Processor:
+|     ⚙️ XSLT engine (browser, Java code, etc.)
+|
+|---> Output:
+      📄 Transformed result (HTML, XML, TXT)
+
+
+
+✅ Basic Structure of XSLT
+
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Output type -->
+  <xsl:output method="html"/>
+
+  <!-- Template: match root node -->
+  <xsl:template match="/">
+    <!-- Your output here -->
+  </xsl:template>
+
+</xsl:stylesheet>
+
+
+
+✅ Key XSLT Tags
+
+Tag	Purpose
+|
+|---> <xsl:stylesheet>	Root of XSLT.
+|---> <xsl:template>	Defines rules for matching XML nodes.
+|---> <xsl:value-of>	Extracts text value using XPath.
+|---> <xsl:for-each>	Loops through multiple nodes.
+|---> <xsl:if>	Conditional output.
+|---> <xsl:choose>	if-else logic (<xsl:when>, <xsl:otherwise>).
+|---> <xsl:apply-templates>	Calls other templates recursively.
+|---> <xsl:attribute>	Add or modify attributes.
+|---> <xsl:output>	Declares output type (HTML, XML, text).
+
+✅ How it works
+|
+|---> 1️⃣ The XSLT processor reads the XML.
+|---> 2️⃣ It matches parts of the XML using XPath.
+|---> 3️⃣ When a match is found, it applies a template to output a new structure.
+|---> 4️⃣ Result: A transformed document.
+
+
+✅ Practical Example
+📄 XML: order.xml
+
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="order.xsl"?>
+<Order id="12345">
+  <CustomerName>James Robin</CustomerName>
+  <Item>
+    <ItemId>007</ItemId>
+    <ItemName>iPhone 7</ItemName>
+    <Price>700</Price>
+    <Quantity>1</Quantity>
+  </Item>
+</Order>
+
+📄 XSLT: order.xsl
+
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Output as HTML -->
+  <xsl:output method="html" indent="yes"/>
+
+  <xsl:template match="/Order">
+    <html>
+      <body>
+        <h2>Order Summary</h2>
+
+        <p>Order Id: <xsl:value-of select="@id"/></p>
+        <p>Customer Name: <xsl:value-of select="CustomerName"/></p>
+
+        <h3>Items</h3>
+        <table border="1">
+          <tr>
+            <th>Item Id</th>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+          <xsl:for-each select="Item">
+            <tr>
+              <td><xsl:value-of select="ItemId"/></td>
+              <td><xsl:value-of select="ItemName"/></td>
+              <td><xsl:value-of select="Price"/></td>
+              <td><xsl:value-of select="Quantity"/></td>
+            </tr>
+          </xsl:for-each>
+        </table>
+      </body>
+    </html>
+  </xsl:template>
+
+</xsl:stylesheet>
+
+✅ Key Points to Remember
+|---> ✔️	XSLT uses XPath to find nodes
+|---> ✔️	Templates decide what to output
+|---> ✔️	You can output HTML, XML, or text
+|---> ✔️	Runs in browser, Java, or online
+
+✅ XSLT = Templates + XPath + Output
+One line definition:
+XSLT transforms XML documents by matching nodes with XPath and outputting new content using template rules.

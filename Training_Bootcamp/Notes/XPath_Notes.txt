@@ -1,0 +1,119 @@
+✅ XSLT stands for extensible Stylesheets language Transformations
+
+✅ XSL (eXtensible Stylesheet Language) is a styling language for XML.
+
+It is a language used to transforn XML documents into other format like:
+|---> Another XML
+|---> HTML
+|---> Plain Text
+|---> CSV, JSON, etc
+
+✅ XSLT stands for eXtensible Stylesheet Language Transformations.
+
+✅ XSLT uses templates + XPath:
+|---> It matches XML nodes.
+|---> Applies rules.
+
+Example: 
+
+<?xml version="1.0"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <body>
+    <h2>My CD Collection</h2>
+    <table border="1">
+      <tr bgcolor="#9acd32">
+        <th>Title</th>
+        <th>Artist</th>
+      </tr>
+      <xsl:for-each select="catalog/cd">
+        <tr>
+          <td><xsl:value-of select="title"/></td>
+          <td><xsl:value-of select="artist"/></td>
+        </tr>
+      </xsl:for-each>
+    </table>
+  </body>
+  </html>
+</xsl:template>
+
+</xsl:stylesheet>
+
+
+
+📚 XPath Basics — Quick Notes
+
+✅ What is XPath?
+|---> XPath = XML Path Language
+|---> Used to navigate through an XML document.
+|---> Lets you select nodes (elements, attributes, text).
+|---> Used in XSLT, XML parsers, and tools like Selenium.
+
+✅ Key XPath Symbols
+|
+|---> Symbol	Meaning
+|---> /	Root node. Absolute path.
+|---> //	Anywhere in the document. Descendant nodes.
+|---> .	Current context node.
+|---> ..	Parent node.
+|---> @	Attribute.
+
+✅ Examples
+|---> 1️⃣ / — Root Path
+|
+|        /Order → The root <Order> element.
+|        /Order/CustomerName → The <CustomerName> directly inside <Order>.
+|
+|
+|---> 2️⃣ // — Anywhere Path
+|
+|        //Item → All <Item> elements anywhere in the document.
+|        //Quantity → All <Quantity> elements anywhere.
+|
+|
+|---> 3️⃣ . — Current Context
+|
+|         . → The current node.
+|         ./Quantity → The <Quantity> child inside the current node.
+|
+|
+|---> 4️⃣ /Quantity vs Quantity vs //Quantity
+|
+|         XPath	Meaning
+|         Quantity	Child <Quantity> of current node. Same as ./Quantity.
+|         /Quantity	<Quantity> directly under root — does not match if it’s nested.
+|         //Quantity	Any <Quantity> anywhere, no matter how deep.
+V
+
+
+
+✅ Best Practices
+|---> ✔️ Use relative XPath (.) when inside loops or <xsl:for-each>.
+|---> ✔️ Use // when you don’t know the exact path depth.
+|---> ✔️ Use / for exact root path — only works if structure is fixed.
+|---> ✔️ Combine with predicates [ ] to filter by position or value.
+
+✅ Key Takeaway
+|---> Symbol	Quick Meaning
+|---> /	Absolute path from root
+|---> //	Descendant-or-self anywhere
+|---> .	Current node
+|---> @	Attribute
+|---> text()	Node text
+
+
+
+✔️ Mini Cheat Sheet
+|---> To get…	Use
+|---> Root element	/Root
+|---> All elements named Quantity	//Quantity
+|---> Quantity under current element	Quantity or ./Quantity
+|---> Attribute	@id
+|---> All id attributes	//@id
+
+
+
+

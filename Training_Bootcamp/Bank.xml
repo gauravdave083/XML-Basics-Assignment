@@ -1,0 +1,26 @@
+<bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="Bank.xsd">
+  <account id="A123">
+    <holder>
+      <firstName>Ravi</firstName>
+      <lastName>Verma</lastName>
+    </holder>
+    <accountType>Savings</accountType>
+    <balance>10000.50</balance>
+    <transactions>
+      <transaction>
+        <txnId>T001</txnId>
+        <type>Credit</type>
+        <amount>5000.00</amount>
+        <date>2025-07-01</date>
+      </transaction>
+      <transaction>
+        <txnId>T002</txnId>
+        <type>Debit</type>
+        <amount>1000.00</amount>
+        <date>2025-07-05</date>
+      </transaction>
+    </transactions>
+  </account>
+</bank>
+

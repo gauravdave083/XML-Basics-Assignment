@@ -1,0 +1,154 @@
+XML 
+
+used
+|
+|--- Store Data 
+|--- Transfer / Exchange Data
+|--- Formating & Interoperatiblity
+|--- Webservices
+|--- Validation Support - sequence of tags in XML file matters, if tags are in other sequence
+|             | 
+|             |-----> DTD - Document Type Defination ------> 2 Types Internal & External (Better)
+|             |       DTD defines the structure, elements, attributes and rules that XML 
+|             |       doc should follows
+|             |
+|             |-----> XSD - XML Schema Definition
+|             |       
+
+
+
+Features 
+|
+|--- Extensible - can create own tags
+|--- Structure - Hierarchical Structure
+|--- Platform Independent
+|--- Descriptive
+|--- Unicode Based
+
+
+
+Structure
+|
+|
+|-----> 1. Prolog (Optional but Common)
+|       The XML declaration at the top specifies the version and encoding
+|       <?xml version="1.0" encoding="UTF-8"?>
+|
+|
+|-----> 2. Root Element
+|       An XML document must have exactly one root element that contains all other elements.
+|       <bookstore>
+|                 <otherTags></otherTags>
+|       </bookstore>
+|
+|
+|
+|-----> 3. Elements (Tags)
+|       AAn XML element is everything from (including) the element's start tag to (including) the element's end tag.
+|
+|       <price>29.99</price>
+|                 
+|
+|-----> 4. Attributes
+        Attributes are designed to contain data related to a specific element.
+        
+        <person gender="female">
+
+
+
+XML documents form a tree structure that starts at "the root" and branches to "the leaves"
+
+
+Syntax 
+|
+|-----> XML Documents Must Have a Root Element
+|
+|-----> The XML Prolog
+|       The XML prolog is optional. If it exists, it must come first in the document.
+|       XML documents can contain international characters, like Norwegian øæå or French êèé.
+|       To avoid errors, you should specify the encoding used, or save your XML files as UTF-8.
+|       UTF-8 is the default character encoding for XML documents.
+|
+|-----> All XML Elements Must Have a Closing Tag
+|
+|-----> XML Tags are Case Sensitive
+|
+|-----> XML Elements Must be Properly Nested
+|
+|-----> Comments in XML
+        <!-- This is a comment -->
+
+
+(#CDATA) ----> Character Data -----> used for unparsed data
+
+Parsed Character Data (#PCDATA): It means the content of the XML element can be text(charcter data) that will be parsed by the XML parser
+- i.e., it will check for:
+
+1. Parsed Content: The text is parsed, meaning the parser checks for valid XML 
+entities and markup.
+
+2. Entity Expansion: Special characters such as <, >, and & must be represented 
+using their entity equivalents (&lt;, &gt;, &amp;).
+
+3. Element Content: PCDATA is typically used to define the content of XML elements
+   that can include text but not child elements.
+
+
+
+XML - USED TO STORE DATA, case-sensitive, can write their own validation
+HTML - USED TO PRESENT DATA, not case-sensetive, cannot write own validation
+
+
+
+Well-Formed Documents
+
+An XML document is well formed if it follows all the preceding syntax rules of XML. 
+On the other hand, if it includes inappropriate markup or characters that cannot be 
+processed by XML parsers, the document cannot be considered well formed. It goes 
+without saying that an XML document can’t be partially well formed. And, by definition,
+if a document is not well formed, it is not XML. This means that there is no such thing 
+as an XML document that is not well formed, and XML processors are not required to process 
+these documents.
+
+
+
+Valid Documents
+
+Although the property of “well-formedness” is a matter of making sure the XML docu-ment 
+complies to syntactical rules, the property of validity is a different ballgame. A well-formed 
+XML document is considered valid only if it contains a proper Document Type Declaration and if 
+the document obeys the constraints of that declaration. In most cases, the constraints of the 
+declaration will be expressed as a DTD or an XML Schema. Well-formed XML documents are designed 
+for use without any constraints, whereas valid XML documents explicitly require these constraint 
+mechanisms.
+
+example:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note [
+    <!ELEMENT note (to, from, heading, body)>
+    <!ELEMENT to (#PCDATA)>
+    <!ELEMENT from (#PCDATA)>
+    <!ELEMENT heading (#PCDATA)>
+    <!ELEMENT body (#PCDATA)>
+]>
+<note>
+   <to>Akash</to>
+   <from>Trainer</from>
+   <heading>Remainder</heading>
+   <body>Don't forget your XML session</body>
+<note>
+
+
+
+XSD: 
+The purpose of an XML Schema is to define the legal building blocks of an XML document:
+|
+|-----the elements and attributes that can appear in a document
+|-----the number of (and order of) child elements
+|-----data types for elements and attributes
+|-----default and fixed values for elements and attributes
+
+xs:element - Defines an XML element
+xs:complexType - Used when an element contains child elements
+xs:simpleType - 
