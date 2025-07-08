@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Attendance Report</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+          }
+          table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+          }
+          th, td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+            text-align: center;
+          }
+          th {
+            background-color: #4CAF50;
+            color: white;
+          }
+          tr:nth-child(even) {
+            background-color: #f2f2f2;
+          }
+          h2 {
+            text-align: center;
+          }
+        </style>
+    </head>
+    <body>
+        <h2>Employee Attendance Report</h2>
+        <table>
+            <tr>
+                <th>Emp ID</th><th>Name</th><th>Date</th><th>Check-In</th><th>Check-Out</th><th>Status</th>
+            </tr>
+            <tr>
+                <td>101</td><td>Ashu</td><td>2025-07-07</td><td>09:05</td><td>18:00</td><td>Present</td>
+            </tr>
+            <tr>
+                <td>102</td><td>Neha</td><td>2025-07-07</td><td>10:00</td><td>17:00</td><td style="background-color: #f44336; color: white;">Late</td>
+            </tr>
+        </table>
+    </body>
+</html>

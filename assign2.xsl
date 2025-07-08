@@ -2,10 +2,8 @@
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <!-- Output as HTML -->
   <xsl:output method="html" indent="yes"/>
 
-  <!-- Template for the root <attendanceReport> -->
   <xsl:template match="/attendanceReport">
     <html>
       <head>
@@ -48,7 +46,7 @@
             <th>Status</th>
           </tr>
 
-          <!-- Loop through each <employee> -->
+          <!-- Loop through each employee -->
           <xsl:for-each select="employee">
             <tr>
               <td><xsl:value-of select="empId"/></td>
@@ -56,9 +54,19 @@
               <td><xsl:value-of select="date"/></td>
               <td><xsl:value-of select="checkIn"/></td>
               <td><xsl:value-of select="checkOut"/></td>
-              <td>
-                <xsl:value-of select="status"/>
-              </td>
+
+              <!-- Only Status cell styled if Late -->
+              <xsl:choose>
+                <xsl:when test="status='Late'">
+                  <td style="background-color: #f44336; color: white;">
+                    <xsl:value-of select="status"/>
+                  </td>
+                </xsl:when>
+                <xsl:otherwise>
+                  <td><xsl:value-of select="status"/></td>
+                </xsl:otherwise>
+              </xsl:choose>
+
             </tr>
           </xsl:for-each>
 
