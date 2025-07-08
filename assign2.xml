@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="attendance-style.xsl"?>
+<attendanceReport>
+  <employee>
+    <empId>101</empId>
+    <name>Ashu</name>
+    <date>2025-07-07</date>
+    <checkIn>09:05</checkIn>
+    <checkOut>18:00</checkOut>
+    <status>Present</status>
+  </employee>
+  <employee>
+    <empId>102</empId>
+    <name>Neha</name>
+    <date>2025-07-07</date>
+    <checkIn>10:00</checkIn>
+    <checkOut>17:00</checkOut>
+    <status>Late</status>
+  </employee>
+</attendanceReport>
